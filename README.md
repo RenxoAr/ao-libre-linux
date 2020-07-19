@@ -8,6 +8,8 @@ POR FAVOR REVISEN SU INSTALACIÓN DE WINE
 
 TESTEADO CON WINE 5.9-STAGING en Manjaro KDE 20 y Ubuntu LTS 20.04
 
+El primer script de ubuntu deberia chequear la version (SOLO PARA: 20.04, 18.04 o 16.04) y linkear al repositorio correspondiente.
+
 Script 1: Instala wine, winetricks y dependencias (la mayoria son lib32- (arch) o libNOMBRE (ubuntu) de 32 bits)
 ELIJAN PARA SU DISTRO.
 
