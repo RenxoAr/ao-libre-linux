@@ -73,5 +73,4 @@ libltdl7:i386 \
 gstreamer1.0-plugins-good:i386 \
 gstreamer1.0-plugins-bad:i386 \
 gstreamer1.0-plugins-ugly:i386 \
-gstreamer1.0-pulseaudio:i386 \
-
+gstreamer1.0-pulseaudio:i386
