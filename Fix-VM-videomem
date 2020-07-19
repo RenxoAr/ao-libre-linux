@@ -1,6 +1,0 @@
-#!/bin/bash
-wprefix=Argentum
-prefix=$HOME/.wine/wineprefix
-prefixAO=$prefix/$wprefix
-
-WINEPREFIX=$prefixAO winetricks videomemorysize=512
