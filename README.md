@@ -5,8 +5,10 @@ Scripts para correr Argentum Online Libre en Linux
 Acuerdense de hacerle chmod +x a los scripts
 
 POR FAVOR REVISEN SU INSTALACIÓN DE WINE, YO LO PROBE CON LA 5.9.
+Testeado en Manjaro KDE 20 y Ubuntu LTS 20.04
 
 Script 1: Instala wine, winetricks y dependencias (la mayoria son lib32- (arch) o libNOMBRE (ubuntu) de 32 bits)
+ELIJAN PARA SU DISTRO.
 
 Script 2: Crea la estructuras de carpetas y el wineprefix y deberia instalar mono y gecko
   Si pregunta para instalar mono y gecko, acepten.
