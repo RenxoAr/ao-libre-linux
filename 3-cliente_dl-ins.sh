@@ -23,7 +23,6 @@ echo ""
 # Descargamos el launcher si no existe...
 if [ ! -e "aolibre-installer-v$launchv.exe" ]; then wget "$launchurl/v$launchv/aolibre-installer-v$launchv.exe"; fi
 
-# Tenemos que instalar esta mierda pero me voy a dormir que es tarde. WINEDEBUG=heap+warn
 echo -e "\e[92mInstalando Launcher de AO Libre...\e[39m"
 WINEPREFIX=$prefixAO wine aolibre-installer-v$launchv.exe
 
