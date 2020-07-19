@@ -32,5 +32,6 @@ Si no inicia con los scripts del 2 al 4 o tira errores, posiblemente sean faltan
 Todos los scripts trate de dejarlos lo mas configurables y sencillos posibles, no me maten por los errores de lógica, no sabo programar.
 
 Con amor a la comunidad que tanto me dio.
+
 Gracias Morgolock por tanto, perdon por tan poco.
 
