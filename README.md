@@ -1,6 +1,6 @@
-# ao-libre-linux
-Scripts para correr Argentum Online Libre en Linux
+# Argentum Online Libre en Linux
 
+Scripts para correr Argentum Online Libre en Linux
 
 Acuerdense de hacerle chmod +x a los scripts
 
