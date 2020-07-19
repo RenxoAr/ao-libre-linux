@@ -17,10 +17,10 @@ Script 2: Crea la estructuras de carpetas y el wineprefix y deberia instalar mon
  !! IMPORTANTE: EL SCRIPT Nº2 LINKEA AUTOMATICAMENTE AL TERCERO !!
 
 Script 3: Descarga, instala y configura el cliente de AO
-    - Se instala el launcher
-    - Elijan el idioma y despues todo aceptar
-    - Dejen la carpeta default de instalación
-    - Desmarquen "Iniciar el Launcher" y "Ver Leeme" cuando termine
+  - Se instala el launcher
+  - Elijan el idioma y despues todo aceptar
+  - Dejen la carpeta default de instalación
+  - Desmarquen "Iniciar el Launcher" y "Ver Leeme" cuando termine
   
 Script 4: Este es el que hace arrancar el juego.
 
