@@ -3,19 +3,19 @@ sudo dpkg --add-architecture i386
 wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
 
 if [[ $(lsb_release -rs) == "20.04" ]];
-then;
+then
   sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main';
   bname=focal;
 fi
 
 if [[ $(lsb_release -rs) == "18.04" ]];
-then;
+then
   sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main';
   bname=bionic;
 fi
 
 if [[ $(lsb_release -rs) == "16.04" ]];
-then;
+then
   sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main';
   bname=xenial;
 fi
