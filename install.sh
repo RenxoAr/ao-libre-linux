@@ -6,13 +6,10 @@ remote="${remote:-https://github.com/${repo}.git}"
 branch="${branch:-master}"
 
 git clone --branch "${branch}" "${remote}" "${dirtemp}"
-cd "${dirtemp}"
 
-sh ./wine-installer.sh
-sh ./wine-config.sh
-sh ./cliente-installer.sh
+sh "${dirtemp}"/wine-installer.sh
+sh "${dirtemp}"/wine-config.sh
+sh "${dirtemp}"/cliente-installer.sh
+sh "${dirtemp}"/run.sh
 
 rm -rf "${dirtemp}"
-
-sh ./run.sh
-
