@@ -1,5 +1,4 @@
 #!/bin/bash
-# echo -e "\e[92mInstalando Librerias de wine...\e[39m"
 
 patchurl=https://github.com/ao-libre/ao-cliente/releases/download
 patchv=0.13.46
