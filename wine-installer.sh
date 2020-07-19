@@ -3,21 +3,15 @@
 distro=$(head -n 1 /etc/os-release | cut -d "=" -f 2 | cut -d \" -f 2)
 version=$(head -n 1 /etc/os-release | cut -d "=" -f 2 | cut -d \" -f 2)
 
-sudo dpkg --add-architecture i386
-wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
-
-if [ "${version}" = "20.04" ]; then
-    codename="focal"
-    sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
-elif [ "${version}" = "18.04" ]; then
-    codename="bionic"
-    sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
-elif [ "${version}" = "16.04" ]; then
-    codename="xenial"
-    sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main'
-fi
-
 if [ "${distro}" = "Ubuntu"]; then
+
+    [ "${version}" = "20.04" ] && codename="focal"
+    [ "${version}" = "18.04" ] && codename="bionic"
+    [ "${version}" = "16.04" ] && codename="xenial"
+    
+    sudo dpkg --add-architecture i386
+    wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+    sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
 
     sudo apt-get update
     sudo apt-get install -y winehq-staging=5.9~${codename} wine-staging=5.9~${codename} wine-staging-amd64=5.9~${codename} wine-staging-i386=5.9~${codename} \
