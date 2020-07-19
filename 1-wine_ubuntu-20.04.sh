@@ -2,13 +2,29 @@
 sudo dpkg --add-architecture i386
 wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
 
-sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+if [[ $(lsb_release -rs) == "20.04" ]]
+then
+  sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+  bname=focal
+fi
+
+if [[ $(lsb_release -rs) == "18.04" ]]
+then
+  sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+  bname=bionic
+fi
+
+if [[ $(lsb_release -rs) == "16.04" ]]
+then
+  sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main'
+  bname=xenial
+fi
 
 sudo apt update
 
-sudo apt install -y winehq-staging=5.9~focal wine-staging=5.9~focal wine-staging-amd64=5.9~focal wine-staging-i386=5.9~focal
+sudo apt install winehq-staging=5.9~$bname wine-staging=5.9~$bname wine-staging-amd64=5.9~$bname wine-staging-i386=5.9~$bname
 
-sudo apt install -y \
+sudo apt install \
 winetricks \
 gcc-multilib \
 cabextract \
