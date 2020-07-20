@@ -4,7 +4,7 @@
 
 ### Requisitos
 
-- Sistema Operativo Linux [Ubuntu (20.04, 18.04 o 16.04) o Manjaro]
+- Sistema Operativo Linux `Ubuntu` (20.04, 18.04 o 16.04) o `Manjaro`
 - `curl` o `wget`
 - `git`
 
