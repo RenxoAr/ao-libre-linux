@@ -13,13 +13,13 @@
 #### con curl
 
 ```shell
-sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/tools/install.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/install.sh)"
 ```
 
 #### con wget
 
 ```shell
-sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/tools/install.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/install.sh)"
 ```
 
 #### Manual
