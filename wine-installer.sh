@@ -119,7 +119,6 @@ elif [ "${distro}" = "Manjaro" ]; then
         wine \
         wine-mono \
         wine_gecko \
-        winetricks \
-        playonlinux
+        winetricks
 
 fi
