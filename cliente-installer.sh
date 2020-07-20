@@ -1,65 +1,52 @@
-#!/bin/bash
+#!/bin/sh
 
-patchurl=https://github.com/ao-libre/ao-cliente/releases/download
-patchv=0.13.46
+export prefix="${HOME}/.wine/wineprefix"
+wprefix="Argentum"
+prefixAO="${prefix}/${wprefix}"
+prefix_waol="${prefixAO}/drive_c/Program Files/Argentum Online Libre/Launcher/Cliente"
+prefixS32="${prefixAO}/drive_c/windows/system32"
+prefixC="${prefixAO}/drive_c"
+patchurl="https://github.com/ao-libre/ao-cliente/releases/download"
+launchurl="https://github.com/ao-libre/ao-autoupdate/releases/download"
+patchv="$(wget -q -O - 'https://github.com/ao-libre/ao-cliente/releases/latest' | cut -d \" -f 2 | grep -o "tag/.*" | sed 's/tag\///g' | tail -n 1)"
+launchv="$(wget -q -O - 'https://github.com/ao-libre/ao-autoupdate/releases/latest' | cut -d \" -f 2 | grep -o "tag/.*" | sed 's/tag\///g' | tail -n 1)"
 
-launchurl=https://github.com/ao-libre/ao-autoupdate/releases/download
-launchv=1.6
+[ ! -e "aolibre-installer-${launchv}.exe" ] && wget "${launchurl}/${launchv}/aolibre-installer-${launchv}.exe"
+[ ! -e "${patchv}.zip" ] && wget "${patchurl}/${patchv}/${patchv}.zip"
+[ ! -d "${prefix_waol}" ] && mkdir -p "${prefix_waol}"
+unzip -q -o "${patchv}.zip" -d "${prefix_waol}"
+chmod 755 -R "${prefix_waol}"
 
-wprefix=Argentum
+## REGISTROS
 
-export prefix=$HOME/.wine/wineprefix
-prefixAO=$prefix/$wprefix
-prefixA=$prefixAO/drive_c/Program\ Files/Argentum\ Online\ Libre/Launcher/Cliente
-prefixS32=$prefixAO/drive_c/windows/system32
-prefixC=$prefixAO/drive_c
+cat <<EOF > "${prefix_waol}/ao_winxp.reg"
+Windows Registry Editor Version 5.00
 
-echo ""
-echo "##################################"
-echo "Instalando Launcher AOLibre..."
-echo "##################################"
-echo ""
-# Descargamos el launcher si no existe...
-if [ ! -e "aolibre-installer-v$launchv.exe" ]; then wget "$launchurl/v$launchv/aolibre-installer-v$launchv.exe"; fi
 
-echo -e "\e[92mInstalando Launcher de AO Libre...\e[39m"
-WINEPREFIX=$prefixAO wine aolibre-installer-v$launchv.exe
 
-echo ""
-echo "##################################"
-echo "Instalando winetricks DLLs..."
-echo "##################################"
-echo ""
+[HKEY_CURRENT_USER\Software\Wine\AppDefaults\Argentum.exe]
 
-WINEPREFIX=$prefixAO winetricks -q mfc42 vcrun2013 vb6run riched30 directmusic
+"Version"="winxp"
 
-echo ""
-echo "##################################"
-echo "Instalando Cliente WinXP..."
-echo "##################################"
-echo ""
 
-# Descargamos el cliente de winxp si no existe...
-if [ ! -e "v$patchv.zip" ]; then wget "$patchurl/v$patchv/v$patchv.zip"; fi
 
-# Descomprimimos...
-if [ ! -d "$prefixA" ]; then mkdir "$prefixA"; fi
-unzip -q -o "v$patchv.zip" -d "$prefixA"
-chmod 775 -R "$prefixA"
+EOF
 
-echo ""
-echo "##################################"
-echo "Registros..."
-echo "##################################"
-echo ""
+cat <<EOF > "${prefix_waol}/d3dopengl.reg"
+Windows Registry Editor Version 5.00
 
-echo -e 'Windows Registry Editor Version 5.00\n\n\n\n[HKEY_CURRENT_USER\Software\Wine\AppDefaults\Argentum.exe]\n\n"Version"="winxp"\n\n\n' > "$prefixA/ao_winxp.reg"
-WINEPREFIX=$prefixAO wine regedit "$prefixA/ao_winxp.reg"
 
-echo -e 'Windows Registry Editor Version 5.00\n\n\n\n[HKEY_CURRENT_USER\Software\Wine\AppDefaults\Argentum.exe\Direct3D]\n\n"DirectDrawRenderer"="opengl"\n\n\n' > "$prefixA/d3dopengl.reg"
-WINEPREFIX=$prefixAO wine regedit "$prefixA/d3dopengl.reg"
 
-echo "Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Wine\AppDefaults\Argentum.exe\Direct3D]
+
+"DirectDrawRenderer"="opengl"
+
+
+
+EOF
+
+cat <<EOF > "${prefix_waol}/dlloverrides.reg"
+Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Software\Wine\DllOverrides]
 "*atl120"="native,builtin"
@@ -82,13 +69,18 @@ echo "Windows Registry Editor Version 5.00
 "*riched20"="native,builtin"
 "*streamci"="native"
 "*vcomp120"="native,builtin"
+EOF
 
-" > "$prefixA/dlloverrides.reg"
+printf "%${COLUMNS}s\n" " " | tr ' ' '='
+printf "%*s\n" $(( $(tput cols) / 2 )) "INSTALACION"
+printf "%${COLUMNS}s\n" " " | tr ' ' '='
 
-WINEPREFIX=$prefixAO wine regedit "$prefixA/dlloverrides.reg"
+WINEPREFIX="${prefixAO}" wine "aolibre-installer-${launchv}.exe"
+WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched30 directmusic ## DLLS
+WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/ao_winxp.reg"
+WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/d3dopengl.reg"
+WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/dlloverrides.reg"
 
-echo ""
-echo "##################################"
-echo "Listo !!"
-echo "##################################"
-echo ""
+printf "%${COLUMNS}s\n" " " | tr ' ' '='
+printf "%*s\n" $(( $(tput cols) / 2 )) "FINALIZADO"
+printf "%${COLUMNS}s\n" " " | tr ' ' '='
