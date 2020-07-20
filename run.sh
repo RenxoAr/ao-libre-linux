@@ -5,6 +5,6 @@ prefixAO="${prefix}/Argentum/drive_c/Program Files/Argentum Online Libre/Launche
 prefixDirAO="${prefix}/Argentum"
 vmcheck="$(cat /sys/class/dmi/id/product_name)"
 
-[ "${vmcheck}" = "VirtualBox" ] && WINEPREFIX="${prefixDirAo}" winetricks videomemorysize=512
+[ "${vmcheck}" = "VirtualBox" ] && WINEPREFIX="${prefixDirAO}" winetricks videomemorysize=512
 
 WINEPREFIX="${prefixDirAO}" WINEDEBUG=heap+all wine "${prefixAO}/Argentum.exe"
