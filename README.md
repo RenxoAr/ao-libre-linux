@@ -58,4 +58,4 @@ Se necesitan esos paquetes y la lista de dependencias que figuran en el script d
 
 Las dependencias son practicamente todas de 32 bits y ya no se instalan por default en ninguna distro, wine instala algunas y otras requieren instalar previamente una version -dev.
 
-Una vez logrado eso, la configuración de wine, la instalación del cliente y la configuración del cliente, son universales en todas las distro.
+Una vez logrado eso, la configuración de wine, la instalación del cliente y la configuración del cliente son universales para todas las distribuciones.
