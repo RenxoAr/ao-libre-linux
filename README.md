@@ -10,15 +10,15 @@ Descargar solo **"install.sh"** y ejecutarlo con `sh install.sh`
 
 Esto va a instalar wine, dependencias, el launcher y el cliente de AO Libre
 
-**Si pregunta para instalar MONO y GECKO, le dan OK**
+Si pregunta para instalar MONO y GECKO, le dan OK
 
-Una vez que llegue a la instalacón del LAUNCHER:
+Una vez que llegue a la instalacón del **LAUNCHER**:
 
   - Elijan el idioma y despues todo aceptar
   - Dejen la carpeta default de instalación
   - Desmarquen "Ejecutar y "Ver Leeme" cuando termine (no funciona)
   
-Cuando termine va a copiar y a iniciar el cliente.
+Una vez finalizada la instalación del launcher va a copiar y a iniciar el cliente.
 
 **PARA CORRER EL CLIENTE USAR EL SCRIPT:** **`$HOME/.ao-libre-linux/run.sh`**
 
