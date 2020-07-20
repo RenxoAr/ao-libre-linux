@@ -11,7 +11,7 @@ if [ "${distro}" = "Ubuntu"]; then
     
     sudo dpkg --add-architecture i386
     wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
-    sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ ${codename} main'
+    sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ ${codename} main"
 
     sudo apt-get update
     sudo apt-get install -y winehq-staging=5.9~${codename} wine-staging=5.9~${codename} wine-staging-amd64=5.9~${codename} wine-staging-i386=5.9~${codename} \
