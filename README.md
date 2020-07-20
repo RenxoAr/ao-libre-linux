@@ -1,61 +1,103 @@
-# Argentum Online Libre en Linux
+![Logo](resources/ao-libre-linux-banner.png)
 
-Scripts para correr Argentum Online Libre en Linux
+## Uso
 
-Descargar solo **"install.sh"** y ejecutarlo con `sh install.sh`
+### Requisitos
 
-**POR FAVOR REVISEN SU INSTALACIÓN DE WINE**
+- Sistema Operativo Linux `Ubuntu` (20.04, 18.04 o 16.04) o `Manjaro`
+- `curl` o `wget`
+- `git`
 
-**TESTEADO CON WINE 5.9-STAGING en Manjaro KDE 20 y Ubuntu LTS 20.04**
+### Instruccciones
 
-Esto va a instalar wine, dependencias, el launcher y el cliente de AO Libre
+#### con curl
 
-Si pregunta para instalar MONO y GECKO, le dan OK
+```shell
+sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/tools/install.sh)"
+```
 
+#### con wget
 
-**Instalación del LAUNCHER:**
+```shell
+sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/tools/install.sh)"
+```
 
-  - Elijan el idioma y despues todo aceptar
-  - Dejen la carpeta default de instalación
-  - Desmarquen "Ejecutar y "Ver Leeme" cuando termine (no funciona)
+#### Manual
+
+```shell
+git clone https://github.com/RenxoAr/ao-libre-linux.git
+cd ~/.ao-libre-linux
+sh ./install.sh
+```
+
+#### Ejecución post-instalación
+
+Si se desea correr Argentum Online Libre en cualquier momento luego de la instalación puede hacerse de esta manera:
+
+```shell
+cd ~/.ao-libre-linux
+sh ./run.sh
+```
+
+#### Inspección
+
+Es aconsejable inspeccionar los scripts de fuentes que uno desconoce antes de ejecutarlos.
+Puden verificarlos de la siguiente manera:
+
+```shell
+curl -Lo install.sh https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/tools/install.sh
+sh install.sh
+```
+
+### Consideraciones
+
+Los scripts van a instalar todas las dependencias, el launcher y el cliente de AO Libre.
+Al preguntar por la instalación de Mono y Gecko aceptar (es necesario para ejecutar el cliente).
+Una vez finalizada la instalación inicia el cliente.
+
+Todo el contenido del repositorio que se descarga se encuentra en:
+
+`~/.ao-libre-linux`
+
+Para purgar la instalación (luego de desinstalar) de Argentum Online Libre:
+
+`rm -rf ~/.wine/wineprefix/Argentum`
+
+Launcher:
+
+- Elegir idioma y continuar con la instalación
+- Mantener la ruta por defecto de instalación del cliente
+- Desmarcar *Ejecutar* y *Ver Leeme* al finalizar la instalación (no funciona)
   
-Una vez finalizada la instalación del launcher va a copiar y a iniciar el cliente.
+### Aclaraciones
 
-**PARA CORRER EL CLIENTE USAR EL SCRIPT:** **`$HOME/.ao-libre-linux/run.sh`**
+**Nota:**
 
-Si necesitan borrar la instalación, borran la carpeta --> `$HOME/.wine/wineprefix/Argentum`
+Para testing en otras distribiciones, además las listadas en `dependencies.sh` (en su mayoría librerías 32bits), se tienen que tener en cuenta las siguientes dependencias:
 
-El script descarga todo en la carpeta --> `$HOME/.ao-libre-linux`
+- `winehq-stable`
+- `wine-stable`
+- `wine-stable-amd64`
+- `wine-stable-i386`
+- `gecko`
+- `mono`
 
-Si no inicia o tira errores, posiblemente sean faltantes de dependencias de wine, pueden tratar de instalarlas a mano, son siempre las de 32 bits.
+La configuración de WINE, la instalación del cliente y su configuración son distro-agnósticas.
 
+### TODO
 
+- [ ] Testear otras distros
+- [ ] Testear VMs
+- [ ] Testear LiveUSB
+- [ ] Reemplazar repositorio de WINE por repositorios oficiales
+- [ ] Generar Desktop File
+- [ ] Reducir el User Input al mínimo posible
+- [ ] Reducir las descargas de dependencias al mínimo posible
+- [ ] Reducir la cantidad de dependencias al mínimo indispensable
+- [ ] Generalizar dependencias
+- [ ] Portear a distribuciones padre de las ya comprobadas (Arch Linux y Debian)
+- [ ] Reemplazar winetricks por winecfg
+- [ ] Generar output para interfaz amigable :slightly_smiling_face:
 
-~~Todos los scripts trate de dejarlos lo mas configurables y sencillos posibles, no me maten por los errores de lógica, no sabo programar.~~
-eso no va mas, Gracias Fenrir por la colaboración en que todo ande mas bonito y fluido.
-
-_Dedicado con amor a la comunidad que tanto me dio._
-
-_Gracias Morgolock por tanto, perdon por tan poco._
-
-
-
-
-
-
-# IMPORTANTE: Para otras distribuciones:
-
-Lo fundamental del proceso es lograr instalar Wine y sus dependencias
-
-* winehq-stable
-* wine-stable
-* wine-stable-amd64
-* wine-stable-i386
-* gecko (reemplaza IE)
-* mono (reemplaza .NET)
-
-Se necesitan esos paquetes y la lista de dependencias que figuran en el script de https://github.com/RenxoAr/ao-libre-linux/blob/master/wine-installer.sh (pueden copiarlas a mano para debian/ubuntu y derivados de arch)
-
-Las dependencias son practicamente todas de 32 bits y ya no se instalan por default en ninguna distro, wine instala algunas y otras requieren instalar previamente una version -dev.
-
-Una vez logrado eso, la configuración de wine, la instalación del cliente y la configuración del cliente son universales para todas las distribuciones.
+---
+Dedicado a toda la comunidad de Argentum Online.
