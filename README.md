@@ -1,42 +1,88 @@
-![Logo](ao-libre-linux-logo.png)]
+![Logo](resources/ao-libre-linux-banner.png)
 
-# Argentum Online Libre en Linux
+## Uso
 
-Scripts para correr Argentum Online Libre en Linux
+### Requisitos
 
-Descargar solo **"install.sh"** y ejecutarlo con `sh install.sh`
+- Sistema Operativo Linux [Ubuntu (20.04, 18.04 o 16.04) o Manjaro]
+- `curl` o `wget`
+- `git`
 
-**POR FAVOR REVISEN SU INSTALACIÓN DE WINE**
+### Instruccciones
 
-**TESTEADO CON WINE 5.9-STAGING en Manjaro KDE 20 y Ubuntu LTS 20.04**
+#### con curl
 
-Esto va a instalar wine, dependencias, el launcher y el cliente de AO Libre
+```shell
+sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/tools/install.sh)"
+```
 
-Si pregunta para instalar MONO y GECKO, le dan OK
+#### con wget
 
+```shell
+sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/tools/install.sh)"
+```
 
-**Instalación del LAUNCHER:**
+#### Manual
 
-  - Elijan el idioma y despues todo aceptar
-  - Dejen la carpeta default de instalación
-  - Desmarquen "Ejecutar y "Ver Leeme" cuando termine (no funciona)
+```shell
+git clone https://github.com/RenxoAr/ao-libre-linux.git
+cd ~/.ao-libre-linux
+sh ./install.sh
+```
+
+#### Ejecución post-instalación
+
+Si se desea correr Argentum Online Libre en cualquier momento luego de la instalación puede hacerse de esta manera:
+
+```shell
+cd ~/.ao-libre-linux
+sh ./run.sh
+```
+
+#### Inspección
+
+Es aconsejable inspeccionar los scripts de fuentes que uno desconoce antes de ejecutarlos.
+Puden verificarlos de la siguiente manera:
+
+```shell
+curl -Lo install.sh https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/tools/install.sh
+sh install.sh
+```
+
+### Consideraciones
+
+Los scripts van a instalar todas las dependencias, el launcher y el cliente de AO Libre.
+Al preguntar por la instalación de Mono y Gecko aceptar (es necesario para ejecutar el cliente).
+Una vez finalizada la instalación inicia el cliente.
+
+Todo el contenido del repositorio que se descarga se encuentra en:
+
+`~/.ao-libre-linux`
+
+Para purgar la instalación (luego de desinstalar) de Argentum Online Libre:
+
+`rm -rf ~/.wine/wineprefix/Argentum`
+
+**LAUNCHER:**
+
+- Elegir idioma y continuar con la instalación
+- Mantener la ruta por defecto de instalación del cliente
+- Desmarcar *Ejecutar* y *Ver Leeme* al finalizar la instalación (no funciona)
   
-Una vez finalizada la instalación del launcher va a copiar y a iniciar el cliente.
+### TODO
 
-**PARA CORRER EL CLIENTE USAR EL SCRIPT:** **`$HOME/.ao-libre-linux/run.sh`**
+- [] Testear otras distros
+- [] Testear VMs
+- [] Testear LiveUSB
+- [] Reemplazar repositorio de WINE por repositorios oficiales
+- [] Generar Desktop File
+- [] Reducir el User Input al mínimo posible
+- [] Reducir las descargas de dependencias al mínimo posible
+- [] Reducir la cantidad de dependencias al mínimo indispensable
+- [] Generalizar dependencias
+- [] Portear a distribuciones padre de las ya comprobadas (Arch Linux y Debian)
+- [] Reemplazar winetricks por winecfg
+- [] Generar output para interfaz amigable :slightly_smiling_face:
 
-Si necesitan borrar la instalación, borran la carpeta --> `$HOME/.wine/wineprefix/Argentum`
-
-El script descarga todo en la carpeta --> `$HOME/.ao-libre-linux`
-
-Si no inicia o tira errores, posiblemente sean faltantes de dependencias de wine, pueden tratar de instalarlas a mano, son siempre las de 32 bits.
-
-
-
-~~Todos los scripts trate de dejarlos lo mas configurables y sencillos posibles, no me maten por los errores de lógica, no sabo programar.~~
-eso no va mas, Gracias Fenrir por la colaboración en que todo ande mas bonito y fluido.
-
-Dedicado con amor a la comunidad que tanto me dio.
-
-Gracias Morgolock por tanto, perdon por tan poco.
-
+---
+Dedicado a toda la comunidad de Argentum Online.
