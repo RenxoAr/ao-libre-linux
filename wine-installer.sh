@@ -23,7 +23,7 @@ if [ "${distro}" = "Ubuntu" ]; then
     fi
 
     sudo apt-get update
-    sudo apt-get install -y winehq-staging=5.9~${codename} wine-staging=5.9~${codename} wine-staging-amd64=5.9~${codename} wine-staging-i386=5.9~${codename} \
+    sudo apt-get install -y winehq-stable wine-stable wine-stable-amd64 wine-stable-i386 \
         winetricks \
         gcc-multilib \
         cabextract \
