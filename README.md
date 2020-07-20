@@ -69,6 +69,20 @@ Launcher:
 - Mantener la ruta por defecto de instalación del cliente
 - Desmarcar *Ejecutar* y *Ver Leeme* al finalizar la instalación (no funciona)
   
+### Aclaraciones
+
+*Nota:*
+Para testing en otras distribiciones, además las listadas en `dependencies.sh` (en su mayoría librerías 32bits), se tienen que tener en cuenta las siguientes dependencias:
+
+- `winehq-stable`
+- `wine-stable`
+- `wine-stable-amd64`
+- `wine-stable-i386`
+- `gecko`
+- `mono`
+
+La configuración de WINE, la instalación del cliente y su configuración son distro-agnósticas.
+
 ### TODO
 
 - [ ] Testear otras distros
