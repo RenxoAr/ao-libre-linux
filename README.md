@@ -54,7 +54,7 @@ Lo fundamental del proceso es lograr instalar Wine y sus dependencias
 * gecko (reemplaza IE)
 * mono (reemplaza .NET)
 
-Se necesitan esos 4 paquetes y la lista de dependencias que figuran en el script de https://github.com/RenxoAr/ao-libre-linux/blob/master/wine-installer.sh (pueden copiarlas a mano para debian/ubuntu y derivados de arch)
+Se necesitan esos paquetes y la lista de dependencias que figuran en el script de https://github.com/RenxoAr/ao-libre-linux/blob/master/wine-installer.sh (pueden copiarlas a mano para debian/ubuntu y derivados de arch)
 
 Las dependencias son practicamente todas de 32 bits y ya no se instalan por default en ninguna distro, wine instala algunas y otras requieren instalar previamente una version -dev.
 
