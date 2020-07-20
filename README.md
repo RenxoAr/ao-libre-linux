@@ -38,3 +38,12 @@ Dedicado con amor a la comunidad que tanto me dio.
 
 Gracias Morgolock por tanto, perdon por tan poco.
 
+1- Para otras distribuciones:
+
+Lo importante del proceso es lograr instalar Wine y sus dependencias
+
+`winehq-stable wine-stable wine-stable-amd64 wine-stable-i386`
+
+se necesitan esos 4 paquetes y la lista de dependencias que figuran en el script de wine-install.sh (pueden copiarlas a mano para debian/ubuntu y derivados de arch)
+
+Una vez logrado eso, la configuración de wine, la instalación del cliente y la configuración del cliente, son universales en todas las distro.
