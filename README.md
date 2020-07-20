@@ -34,13 +34,18 @@ Si no inicia o tira errores, posiblemente sean faltantes de dependencias de wine
 ~~Todos los scripts trate de dejarlos lo mas configurables y sencillos posibles, no me maten por los errores de lógica, no sabo programar.~~
 eso no va mas, Gracias Fenrir por la colaboración en que todo ande mas bonito y fluido.
 
-Dedicado con amor a la comunidad que tanto me dio.
+_Dedicado con amor a la comunidad que tanto me dio._
 
-Gracias Morgolock por tanto, perdon por tan poco.
+_Gracias Morgolock por tanto, perdon por tan poco._
 
-1- Para otras distribuciones:
 
-Lo importante del proceso es lograr instalar Wine y sus dependencias
+
+
+
+
+# IMPORTANTE: Para otras distribuciones:
+
+Lo fundamental del proceso es lograr instalar Wine y sus dependencias
 
 `winehq-stable wine-stable wine-stable-amd64 wine-stable-i386`
 
