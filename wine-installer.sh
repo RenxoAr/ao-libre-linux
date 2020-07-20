@@ -8,7 +8,7 @@ libaud64="libfaudio0_20.01-0~buster_amd64.deb"
 
     
    
-if [ "${distro}" = "Ubuntu"]; then
+if [ "${distro}" = "Ubuntu" ]; then
 
     sudo dpkg --add-architecture i386
     wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
