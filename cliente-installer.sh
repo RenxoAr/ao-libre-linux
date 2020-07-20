@@ -15,6 +15,10 @@ launchv="$(wget -q -O - 'https://github.com/ao-libre/ao-autoupdate/releases/late
 [ ! -e "${patchv}.zip" ] && wget "${patchurl}/${patchv}/${patchv}.zip"
 [ ! -d "${prefix_waol}" ] && mkdir -p "${prefix_waol}"
 
+WINEPREFIX="${prefixAO}" wine "aolibre-installer-${launchv}.exe"
+WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched30 directmusic ## DLLS
+rm -R "${prefix_waol}/Init"
+
 unzip -q -o "${patchv}.zip" -d "${prefix_waol}"
 chmod 755 -R "${prefix_waol}"
 
@@ -76,12 +80,9 @@ printf "%${COLUMNS}s\n" " " | tr ' ' '='
 printf "%*s\n" $(( $(tput cols) / 2 )) "INSTALACION"
 printf "%${COLUMNS}s\n" " " | tr ' ' '='
 
-WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched30 directmusic ## DLLS
-WINEPREFIX="${prefixAO}" wine "aolibre-installer-${launchv}.exe"
 WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/ao_winxp.reg"
 WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/d3dopengl.reg"
 WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/dlloverrides.reg"
-rm -R "${prefix_waol}/Init"
 
 printf "%${COLUMNS}s\n" " " | tr ' ' '='
 printf "%*s\n" $(( $(tput cols) / 2 )) "FINALIZADO"
