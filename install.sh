@@ -11,5 +11,3 @@ sh "${dirtemp}"/wine-installer.sh
 sh "${dirtemp}"/wine-config.sh
 sh "${dirtemp}"/cliente-installer.sh
 sh "${dirtemp}"/run.sh
-
-rm -rf "${dirtemp}"

@@ -17,11 +17,11 @@ urlgecko="http://dl.winehq.org/wine/wine-gecko/${geckov}/wine-gecko-${geckov}-x8
 
 ## GECKO (IE) Y MONO (.NET) PARA WINE
 if [ ! -e "${HOME}/.cache/wine/wine-mono-${monov}-x86.msi" ]; then
-    wget -P "${prefixcache} ${urlmono}"
+    wget -P "${prefixcache}" "${urlmono}"
 fi
 
 if [ ! -e "${HOME}/.cache/wine/wine-gecko-${geckov}-x86.msi" ]; then
-    wget -P "${prefixcache} ${urlgecko}"
+    wget -P "${prefixcache}" "${urlgecko}"
 fi
 
 cp "${prefixcache}/wine-mono-${monov}-x86.msi" "${prefixshare}/mono"
