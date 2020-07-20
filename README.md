@@ -49,6 +49,8 @@ Lo fundamental del proceso es lograr instalar Wine y sus dependencias
 
 `winehq-stable wine-stable wine-stable-amd64 wine-stable-i386`
 
-se necesitan esos 4 paquetes y la lista de dependencias que figuran en el script de https://github.com/RenxoAr/ao-libre-linux/blob/master/wine-installer.sh (pueden copiarlas a mano para debian/ubuntu y derivados de arch)
+Se necesitan esos 4 paquetes y la lista de dependencias que figuran en el script de https://github.com/RenxoAr/ao-libre-linux/blob/master/wine-installer.sh (pueden copiarlas a mano para debian/ubuntu y derivados de arch)
+
+Las dependencias son practicamente todas de 32 bits y ya no se instalan por default en ningun distro, wine instala algunas y otras requieren instalar previamente una version -dev.
 
 Una vez logrado eso, la configuración de wine, la instalación del cliente y la configuración del cliente, son universales en todas las distro.
