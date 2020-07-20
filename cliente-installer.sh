@@ -81,3 +81,8 @@ EOF
 WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/ao_winxp.reg"
 WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/d3dopengl.reg"
 WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/dlloverrides.reg"
+
+# Si es una VM le da memoria de video para que no crashee al iniciar
+vmcheck="$(cat /sys/class/dmi/id/product_name)"
+
+[ "${vmcheck}" = "VirtualBox" ] && WINEPREFIX="${prefixDirAO}" winetricks videomemorysize=512
