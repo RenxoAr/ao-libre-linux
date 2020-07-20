@@ -20,7 +20,7 @@ WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched30 directmus
 rm -R "${prefix_waol}/Init"
 
 unzip -q -o "${patchv}.zip" -d "${prefix_waol}"
-chmod 755 -R "${prefix_waol}"
+chmod 775 -R "${prefix_waol}"
 
 ## REGISTROS
 
