@@ -11,6 +11,8 @@ launchurl="https://github.com/ao-libre/ao-autoupdate/releases/download"
 patchv="$(wget -q -O - 'https://github.com/ao-libre/ao-cliente/releases/latest' | cut -d \" -f 2 | grep -o "tag/.*" | sed 's/tag\///g' | tail -n 1)"
 launchv="$(wget -q -O - 'https://github.com/ao-libre/ao-autoupdate/releases/latest' | cut -d \" -f 2 | grep -o "tag/.*" | sed 's/tag\///g' | tail -n 1)"
 
+## INSTALACION
+
 [ ! -e "aolibre-installer-${launchv}.exe" ] && wget "${launchurl}/${launchv}/aolibre-installer-${launchv}.exe"
 [ ! -e "${patchv}.zip" ] && wget "${patchurl}/${patchv}/${patchv}.zip"
 [ ! -d "${prefix_waol}" ] && mkdir -p "${prefix_waol}"
@@ -76,14 +78,6 @@ Windows Registry Editor Version 5.00
 "*vcomp120"="native,builtin"
 EOF
 
-printf "%${COLUMNS}s\n" " " | tr ' ' '='
-printf "%*s\n" $(( $(tput cols) / 2 )) "INSTALACION"
-printf "%${COLUMNS}s\n" " " | tr ' ' '='
-
 WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/ao_winxp.reg"
 WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/d3dopengl.reg"
 WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/dlloverrides.reg"
-
-printf "%${COLUMNS}s\n" " " | tr ' ' '='
-printf "%*s\n" $(( $(tput cols) / 2 )) "FINALIZADO"
-printf "%${COLUMNS}s\n" " " | tr ' ' '='
