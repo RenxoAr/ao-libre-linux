@@ -19,7 +19,6 @@ launchv="$(wget -q -O - 'https://github.com/ao-libre/ao-autoupdate/releases/late
 
 WINEPREFIX="${prefixAO}" wine "aolibre-installer-${launchv}.exe"
 WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched30 directmusic ## DLLS
-rm -R "${prefix_waol}/Init"
 
 unzip -q -o "${patchv}.zip" -d "${prefix_waol}"
 chmod 775 -R "${prefix_waol}"
