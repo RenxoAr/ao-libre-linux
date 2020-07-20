@@ -1,3 +1,5 @@
+![Logo](ao-libre-linux-logo.png)]
+
 # Argentum Online Libre en Linux
 
 Scripts para correr Argentum Online Libre en Linux
