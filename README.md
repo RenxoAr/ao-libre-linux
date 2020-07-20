@@ -63,7 +63,7 @@ Para purgar la instalación (luego de desinstalar) de Argentum Online Libre:
 
 `rm -rf ~/.wine/wineprefix/Argentum`
 
-**LAUNCHER:**
+Launcher:
 
 - Elegir idioma y continuar con la instalación
 - Mantener la ruta por defecto de instalación del cliente
@@ -71,18 +71,18 @@ Para purgar la instalación (luego de desinstalar) de Argentum Online Libre:
   
 ### TODO
 
-- [] Testear otras distros
-- [] Testear VMs
-- [] Testear LiveUSB
-- [] Reemplazar repositorio de WINE por repositorios oficiales
-- [] Generar Desktop File
-- [] Reducir el User Input al mínimo posible
-- [] Reducir las descargas de dependencias al mínimo posible
-- [] Reducir la cantidad de dependencias al mínimo indispensable
-- [] Generalizar dependencias
-- [] Portear a distribuciones padre de las ya comprobadas (Arch Linux y Debian)
-- [] Reemplazar winetricks por winecfg
-- [] Generar output para interfaz amigable :slightly_smiling_face:
+- [ ] Testear otras distros
+- [ ] Testear VMs
+- [ ] Testear LiveUSB
+- [ ] Reemplazar repositorio de WINE por repositorios oficiales
+- [ ] Generar Desktop File
+- [ ] Reducir el User Input al mínimo posible
+- [ ] Reducir las descargas de dependencias al mínimo posible
+- [ ] Reducir la cantidad de dependencias al mínimo indispensable
+- [ ] Generalizar dependencias
+- [ ] Portear a distribuciones padre de las ya comprobadas (Arch Linux y Debian)
+- [ ] Reemplazar winetricks por winecfg
+- [ ] Generar output para interfaz amigable :slightly_smiling_face:
 
 ---
 Dedicado a toda la comunidad de Argentum Online.
