@@ -2,38 +2,33 @@
 
 Scripts para correr Argentum Online Libre en Linux
 
-Acuerdense de hacerle chmod +x a los scripts
+Correr el instalador con "sh install.sh"
 
 POR FAVOR REVISEN SU INSTALACIÓN DE WINE
 
 TESTEADO CON WINE 5.9-STAGING en Manjaro KDE 20 y Ubuntu LTS 20.04
 
-El primer script de ubuntu deberia chequear la version (SOLO PARA: 20.04, 18.04 o 16.04) y linkear al repositorio correspondiente.
+Esto va a instalar wine, dependencias, el launcher y el cliente de AO Libre
+Si pregunta para instalar MONO y GECKO, le dan OK
 
-Script 1: Instala wine, winetricks y dependencias (la mayoria son lib32- (arch) o libNOMBRE (ubuntu) de 32 bits)
-ELIJAN PARA SU DISTRO.
+Una vez que llegue a la instalacón del LAUNCHER:
 
-Script 2: Crea la estructuras de carpetas y el wineprefix y deberia instalar mono y gecko
-  Si pregunta para instalar mono y gecko, acepten.
-
- !! IMPORTANTE: EL SCRIPT Nº2 LINKEA AUTOMATICAMENTE AL TERCERO !!
-
-Script 3: Descarga, instala y configura el cliente de AO
-  - Se instala el launcher
   - Elijan el idioma y despues todo aceptar
   - Dejen la carpeta default de instalación
-  - Desmarquen "Iniciar el Launcher" y "Ver Leeme" cuando termine
+  - Desmarquen "Ejecutar y "Ver Leeme" cuando termine (no funciona)
   
-Script 4: Este es el que hace arrancar el juego.
+Cuando termine va a copiar y a iniciar el cliente.
+
+PARA CORRER EL CLIENTE USAR EL SCRIPT: RUN.SH
 
 Si necesitan borrar la instalación, borran la carpeta --> $HOME/.wine/wineprefix/Argentum
 
-Si no inicia con los scripts del 2 al 4 o tira errores, posiblemente sean faltantes de dependencias de wine
+Si no inicia o tira errores, posiblemente sean faltantes de dependencias de wine, pueden tratar de instalarlas a mano, son siempre las de 32 bits.
 
+`Todos los scripts trate de dejarlos lo mas configurables y sencillos posibles, no me maten por los errores de lógica, no sabo programar.`
+eso de arriba no va mas, Gracias Fenrir por la colaboración en que todo ande mas bonito y fluido.
 
-Todos los scripts trate de dejarlos lo mas configurables y sencillos posibles, no me maten por los errores de lógica, no sabo programar.
-
-Con amor a la comunidad que tanto me dio.
+Dedicado con amor a la comunidad que tanto me dio.
 
 Gracias Morgolock por tanto, perdon por tan poco.
 
