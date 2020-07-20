@@ -2,7 +2,7 @@
 
 Scripts para correr Argentum Online Libre en Linux
 
-Correr el instalador con "sh install.sh"
+Descargar solo **"install.sh"** y ejecutarlo con `sh install.sh`
 
 **POR FAVOR REVISEN SU INSTALACIÓN DE WINE**
 
