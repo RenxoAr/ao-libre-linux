@@ -1,7 +1,7 @@
 #!/bin/sh
 
 dirtemp="${dirtemp:-$HOME/.ao-libre-linux}"
-repo="${repo:-EmilianoSalcedo/ao-libre-linux}"
+repo="${repo:-RenxoAr/ao-libre-linux}"
 remote="${remote:-https://github.com/${repo}.git}"
 branch="${branch:-master}"
 
