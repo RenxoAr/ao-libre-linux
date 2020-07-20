@@ -12,7 +12,8 @@ Esto va a instalar wine, dependencias, el launcher y el cliente de AO Libre
 
 Si pregunta para instalar MONO y GECKO, le dan OK
 
-Una vez que llegue a la instalacón del **LAUNCHER**:
+
+**Instalación del LAUNCHER:**
 
   - Elijan el idioma y despues todo aceptar
   - Dejen la carpeta default de instalación
