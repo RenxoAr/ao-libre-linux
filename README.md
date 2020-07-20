@@ -20,9 +20,11 @@ Una vez que llegue a la instalacón del LAUNCHER:
   
 Cuando termine va a copiar y a iniciar el cliente.
 
-**PARA CORRER EL CLIENTE USAR EL SCRIPT: RUN.SH**
+**PARA CORRER EL CLIENTE USAR EL SCRIPT:** **`$HOME/.ao-libre-linux/run.sh`**
 
-Si necesitan borrar la instalación, borran la carpeta --> $HOME/.wine/wineprefix/Argentum
+Si necesitan borrar la instalación, borran la carpeta --> `$HOME/.wine/wineprefix/Argentum`
+
+El script descarga todo en la carpeta --> `$HOME/.ao-libre-linux`
 
 Si no inicia o tira errores, posiblemente sean faltantes de dependencias de wine, pueden tratar de instalarlas a mano, son siempre las de 32 bits.
 
