@@ -47,7 +47,12 @@ _Gracias Morgolock por tanto, perdon por tan poco._
 
 Lo fundamental del proceso es lograr instalar Wine y sus dependencias
 
-`winehq-stable wine-stable wine-stable-amd64 wine-stable-i386`
+* winehq-stable
+* wine-stable
+* wine-stable-amd64
+* wine-stable-i386
+* gecko (reemplaza IE)
+* mono (reemplaza .NET)
 
 Se necesitan esos 4 paquetes y la lista de dependencias que figuran en el script de https://github.com/RenxoAr/ao-libre-linux/blob/master/wine-installer.sh (pueden copiarlas a mano para debian/ubuntu y derivados de arch)
 
