@@ -3,12 +3,24 @@
 distro=$(head -n 1 /etc/os-release | cut -d "=" -f 2 | cut -d \" -f 2)
 version=$(grep "VERSION_ID" /etc/os-release | cut -d "=" -f 2 | cut -d \" -f 2)
 codename=$(grep "VERSION_CODENAME" /etc/os-release | cut -d "=" -f 2 | cut -d \" -f 2)
+libaud32="libfaudio0_20.01-0~buster_i386.deb"
+libaud64="libfaudio0_20.01-0~buster_amd64.deb"
 
+    
+   
 if [ "${distro}" = "Ubuntu"]; then
 
     sudo dpkg --add-architecture i386
     wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
     echo "deb https://dl.winehq.org/wine-builds/ubuntu/ ${codename} main" | sudo tee -a /etc/apt/sources.list
+
+    if [ "${version}" = "18.04" ] || [ "${version}" = "16.04" ]; then
+        wget "https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/i386/${libaud32}"
+        wget "https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/amd64/${libaud64}"
+    
+        sudo dpkg -i "${libaudio32}"
+        sudo dpkg -i "${libaudio64}"
+    fi
 
     sudo apt-get update
     sudo apt-get install -y winehq-staging=5.9~${codename} wine-staging=5.9~${codename} wine-staging-amd64=5.9~${codename} wine-staging-i386=5.9~${codename} \
