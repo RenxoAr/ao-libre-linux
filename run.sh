@@ -2,9 +2,9 @@
 
 export prefix="${HOME}/.wine/wineprefix"
 prefixAO="${prefix}/Argentum/drive_c/Program Files/Argentum Online Libre/Launcher/Cliente"
-prefixVM="Argentum"
+prefixDirAO="${prefix}/Argentum"
 vmcheck="$(cat /sys/class/dmi/id/product_name)"
 
-[ "${vmcheck}" = "VirtualBox" ] && WINEPREFIX="${prefix}/${prefixVM}" winetricks videomemorysize=512
+[ "${vmcheck}" = "VirtualBox" ] && WINEPREFIX="${prefixDirAo}" winetricks videomemorysize=512
 
-WINEPREFIX="${prefix}/Argentum" WINEDEBUG=heap+all wine "${prefixAO}/Argentum.exe"
+WINEPREFIX="${prefixDirAO}" WINEDEBUG=heap+all wine "${prefixAO}/Argentum.exe"
