@@ -18,8 +18,8 @@ vmcheck="$(cat /sys/class/dmi/id/product_name)"
 [ ! -e "${patchv}.zip" ] && wget "${patchurl}/${patchv}/${patchv}.zip"
 [ ! -d "${prefix_waol}" ] && mkdir -p "${prefix_waol}"
 
-WINEPREFIX="${prefixAO}" wine "aolibre-installer-${launchv}.exe"
-WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched30 directmusic ## DLLS
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine "aolibre-installer-${launchv}.exe"
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched30 directmusic ## DLLS
 
 unzip -q -o "${patchv}.zip" -d "${prefix_waol}"
 chmod 755 -R "${prefix_waol}"
@@ -78,7 +78,7 @@ Windows Registry Editor Version 5.00
 "*vcomp120"="native,builtin"
 EOF
 
-WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/ao_winxp.reg"
-WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/d3dopengl.reg"
-WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/dlloverrides.reg"
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/ao_winxp.reg"
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/d3dopengl.reg"
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/dlloverrides.reg"
 [ "${vmcheck}" = "VirtualBox" ] && WINEPREFIX="${prefixAO}" winetricks videomemorysize=512 # Memoria de video de la VM
