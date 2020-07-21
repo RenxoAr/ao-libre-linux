@@ -13,7 +13,7 @@
 #### con curl
 
 ```shell
-sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/install.sh)"
 ```
 
 #### con wget
