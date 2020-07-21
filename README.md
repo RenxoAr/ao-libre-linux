@@ -45,8 +45,7 @@ Es aconsejable inspeccionar los scripts de fuentes que uno desconoce antes de ej
 Puden verificarlos de la siguiente manera:
 
 ```shell
-curl -Lo install.sh https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/install.sh
-sh install.sh
+curl -Ls install.sh https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/install.sh | less
 ```
 
 ### Consideraciones
