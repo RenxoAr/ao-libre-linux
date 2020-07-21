@@ -71,7 +71,6 @@ Launcher:
 ### Aclaraciones
 
 **Nota:**
-
 Para testing en otras distribiciones, además las listadas en `dependencies.sh` (en su mayoría librerías 32bits), se tienen que tener en cuenta las siguientes dependencias:
 
 - `winehq-stable`
