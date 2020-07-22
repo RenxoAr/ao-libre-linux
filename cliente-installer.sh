@@ -72,6 +72,7 @@ Windows Registry Editor Version 5.00
 "*mfc42u"="native"
 "*msvcp120"="native,builtin"
 "*msvcr120"="native,builtin"
+"*oleaut32"="native,builtin"
 "*quartz"="native"
 "*riched20"="native,builtin"
 "*streamci"="native"
