@@ -70,6 +70,19 @@ Launcher:
   
 ### Aclaraciones
 
+**Para distribuciones basadas en Debian:**
+Si tira un error de SECUR32 prueben reinstalando el paquete winbind.
+
+```shell
+sudo apt install --reinstall winbind
+
+o
+
+sudo apt remove winbind; sudo apt install winbind
+```
+
+Si tienen que instalar o reinstalar alguna dependencia, por favor reinstalen wine de nuevo (tiende a fallar sino)
+
 **Nota:**
 Para testing en otras distribiciones, además las listadas en `dependencies.sh` (en su mayoría librerías 32bits), se tienen que tener en cuenta las siguientes dependencias:
 
