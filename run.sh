@@ -35,4 +35,7 @@ if [ "$aogitv" -lt "$aolocalv" ]; then
         iniciar_cliente
     else
         echo "NO SE PUEDE INICIAR !! No se reconoce la versión del cliente."
+        echo "Reinstalando por las dudas ... :D"
+        instalar_cliente
+        iniciar_cliente
 fi
