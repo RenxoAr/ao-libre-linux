@@ -3,9 +3,16 @@
 distro=$(head -n 1 /etc/os-release | cut -d "=" -f 2 | cut -d \" -f 2)
 version=$(grep "VERSION_ID" /etc/os-release | cut -d "=" -f 2 | cut -d \" -f 2)
 codename=$(grep "VERSION_CODENAME" /etc/os-release | cut -d "=" -f 2 | cut -d \" -f 2)
-libaud32="libfaudio0_20.01-0~buster_i386.deb"
-libaud64="libfaudio0_20.01-0~buster_amd64.deb"
-   
+libaud32deb="libfaudio0_20.01-0~buster_i386.deb"
+libaud64deb="libfaudio0_20.01-0~buster_amd64.deb"
+libaud32ub="libfaudio0_19.07-0~bionic_i386.deb"
+libaud64ub="libfaudio0_19.07-0~bionic_amd64.deb"
+
+#  Para Debian:
+#  wget "https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/i386/${libaud32deb}"
+#  wget "https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/amd64/${libaud64deb}"
+
+
 if [ "${distro}" = "Ubuntu" ]; then
 
     sudo dpkg --add-architecture i386
@@ -13,11 +20,12 @@ if [ "${distro}" = "Ubuntu" ]; then
     echo "deb https://dl.winehq.org/wine-builds/ubuntu/ ${codename} main" | sudo tee -a /etc/apt/sources.list
 
     if [ "${version}" = "18.04" ] || [ "${version}" = "16.04" ]; then
-        wget "https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/i386/${libaud32}"
-        wget "https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/amd64/${libaud64}"
-    
-        sudo dpkg -i "${libaudio32}"
-        sudo dpkg -i "${libaudio64}"
+
+        wget "https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/i386/${libaud32ub}"
+        wget "https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/amd64/${libaud64ub}"        
+ 
+        sudo dpkg -i "${libaudio32ub}"
+        sudo dpkg -i "${libaudio64ub}"
     fi
 
     sudo apt-get update
