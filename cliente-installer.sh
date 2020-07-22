@@ -19,7 +19,7 @@ vmcheck="$(cat /sys/class/dmi/id/product_name)"
 [ ! -d "${prefix_waol}" ] && mkdir -p "${prefix_waol}"
 
 WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine "aolibre-installer-${launchv}.exe"
-WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched30 directmusic ## DLLS
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched20 riched30 directmusic ## DLLS
 
 unzip -q -o "${patchv}.zip" -d "${prefix_waol}"
 chmod 755 -R "${prefix_waol}"
