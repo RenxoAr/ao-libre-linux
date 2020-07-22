@@ -75,6 +75,7 @@ Windows Registry Editor Version 5.00
 "*oleaut32"="native,builtin"
 "*quartz"="native"
 "*riched20"="native,builtin"
+"*riched32"="native,builtin"
 "*streamci"="native"
 "*vcomp120"="native,builtin"
 EOF
