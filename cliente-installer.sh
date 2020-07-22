@@ -10,6 +10,7 @@ patchurl="https://github.com/ao-libre/ao-cliente/releases/download"
 launchurl="https://github.com/ao-libre/ao-autoupdate/releases/download"
 patchv="$(wget -q -O - 'https://github.com/ao-libre/ao-cliente/releases/latest' | cut -d \" -f 2 | grep -o "tag/.*" | sed 's/tag\///g' | tail -n 1)"
 launchv="$(wget -q -O - 'https://github.com/ao-libre/ao-autoupdate/releases/latest' | cut -d \" -f 2 | grep -o "tag/.*" | sed 's/tag\///g' | tail -n 1)"
+vmcheck="$(cat /sys/class/dmi/id/product_name)"
 
 ## INSTALACION
 
@@ -17,8 +18,8 @@ launchv="$(wget -q -O - 'https://github.com/ao-libre/ao-autoupdate/releases/late
 [ ! -e "${patchv}.zip" ] && wget "${patchurl}/${patchv}/${patchv}.zip"
 [ ! -d "${prefix_waol}" ] && mkdir -p "${prefix_waol}"
 
-WINEPREFIX="${prefixAO}" wine "aolibre-installer-${launchv}.exe"
-WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched30 directmusic ## DLLS
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine "aolibre-installer-${launchv}.exe"
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched30 directmusic ## DLLS
 
 unzip -q -o "${patchv}.zip" -d "${prefix_waol}"
 chmod 755 -R "${prefix_waol}"
@@ -77,11 +78,7 @@ Windows Registry Editor Version 5.00
 "*vcomp120"="native,builtin"
 EOF
 
-WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/ao_winxp.reg"
-WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/d3dopengl.reg"
-WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/dlloverrides.reg"
-
-# Si es una VM le da memoria de video para que no crashee al iniciar
-vmcheck="$(cat /sys/class/dmi/id/product_name)"
-
-[ "${vmcheck}" = "VirtualBox" ] && WINEPREFIX="${prefixAO}" winetricks videomemorysize=512
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/ao_winxp.reg"
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/d3dopengl.reg"
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/dlloverrides.reg"
+[ "${vmcheck}" = "VirtualBox" ] && WINEPREFIX="${prefixAO}" winetricks videomemorysize=512 # Memoria de video de la VM

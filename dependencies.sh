@@ -5,8 +5,6 @@ version=$(grep "VERSION_ID" /etc/os-release | cut -d "=" -f 2 | cut -d \" -f 2)
 codename=$(grep "VERSION_CODENAME" /etc/os-release | cut -d "=" -f 2 | cut -d \" -f 2)
 libaud32="libfaudio0_20.01-0~buster_i386.deb"
 libaud64="libfaudio0_20.01-0~buster_amd64.deb"
-
-    
    
 if [ "${distro}" = "Ubuntu" ]; then
 

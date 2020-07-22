@@ -27,6 +27,6 @@ fi
 cp "${prefixcache}/wine-mono-${monov}-x86.msi" "${prefixshare}/mono"
 cp "${prefixcache}/wine-gecko-${geckov}-x86.msi" "${prefixshare}/gecko"
 
-WINEPREFIX="${prefixAO}" WINEARCH=win32 winetricks win7
-WINEPREFIX="${prefixAO}" wine msiexec /i "${prefixshare}/mono/wine-mono-${monov}-x86.msi"
-WINEPREFIX="${prefixAO}" wine msiexec /i "${prefixshare}/wine/gecko/wine-gecko-${geckov}-x86.msi"
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" WINEARCH=win32 winetricks win7
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine msiexec /i "${prefixshare}/mono/wine-mono-${monov}-x86.msi"
+WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine msiexec /i "${prefixshare}/wine/gecko/wine-gecko-${geckov}-x86.msi"

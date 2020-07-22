@@ -13,7 +13,7 @@
 #### con curl
 
 ```shell
-sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/install.sh)"
 ```
 
 #### con wget
@@ -25,7 +25,7 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/maste
 #### Manual
 
 ```shell
-git clone https://github.com/RenxoAr/ao-libre-linux.git
+git clone https://github.com/RenxoAr/ao-libre-linux.git ~/.ao-libre-linux
 cd ~/.ao-libre-linux
 sh ./install.sh
 ```
@@ -42,11 +42,10 @@ sh ./run.sh
 #### Inspección
 
 Es aconsejable inspeccionar los scripts de fuentes que uno desconoce antes de ejecutarlos.
-Puden verificarlos de la siguiente manera:
+Pueden verificarlos de la siguiente manera:
 
 ```shell
-curl -Lo install.sh https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/tools/install.sh
-sh install.sh
+curl -Ls https://raw.githubusercontent.com/RenxoAr/ao-libre-linux/master/install.sh | less
 ```
 
 ### Consideraciones
@@ -72,7 +71,6 @@ Launcher:
 ### Aclaraciones
 
 **Nota:**
-
 Para testing en otras distribiciones, además las listadas en `dependencies.sh` (en su mayoría librerías 32bits), se tienen que tener en cuenta las siguientes dependencias:
 
 - `winehq-stable`
