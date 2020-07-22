@@ -13,7 +13,7 @@ urlgecko="http://dl.winehq.org/wine/wine-gecko/${geckov}/wine-gecko-${geckov}-x8
 [ ! -d "${HOME}/.wine" ] && mkdir "${HOME}/.wine"
 [ ! -d "${prefix}" ] && mkdir -p "${prefix}"
 [ ! -d "${prefixAO}" ] && mkdir -p "${prefixAO}"
-[ ! -d "${prefixshare}/mono" && "${prefixshare}/gecko" ] && mkdir -p "${prefixshare}/"{mono,gecko}
+( [ ! -d "${prefixshare}/mono" ] && [ ! -d "${prefixshare}/gecko" ] ) && mkdir -p "${prefixshare}/"{mono,gecko}
 
 ## GECKO (IE) Y MONO (.NET) PARA WINE
 if [ ! -e "${HOME}/.cache/wine/wine-mono-${monov}-x86.msi" ]; then
