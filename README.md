@@ -39,6 +39,14 @@ cd ~/.ao-libre-linux
 sh ./run.sh
 ```
 
+#### Actualización del cliente
+
+Solo se necesita ejecutar el siguiente script:
+```shell
+cd ~/.ao-libre-linux
+sh ./cliente-installer.sh
+```
+
 #### Inspección
 
 Es aconsejable inspeccionar los scripts de fuentes que uno desconoce antes de ejecutarlos.
