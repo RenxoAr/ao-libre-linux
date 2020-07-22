@@ -6,7 +6,7 @@ codename=$(grep "VERSION_CODENAME" /etc/os-release | cut -d "=" -f 2 | cut -d \"
 libaud32="libfaudio0_20.01-0~buster_i386.deb"
 libaud64="libfaudio0_20.01-0~buster_amd64.deb"
    
-if [ "${distro}" = "Ubuntu" ]; then
+if [ "${distro}" = "Ubuntu" ] ||  [ "${distro}" = "KDE neon" ]; then
 
     sudo dpkg --add-architecture i386
     wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
