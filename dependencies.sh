@@ -13,7 +13,7 @@ libaud64ub="libfaudio0_19.07-0~bionic_amd64.deb"
 #  wget "https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/amd64/${libaud64deb}"
 
 
-if [ "${distro}" = "Ubuntu" ]; then
+if [ "${distro}" = "Ubuntu" ] || [ "${distro}" = "KDE neon" ]; then
 
     sudo dpkg --add-architecture i386
     wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
