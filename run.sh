@@ -1,16 +1,17 @@
 #!/bin/sh
 export prefix="${HOME}/.wine/wineprefix"
 prefix_waol="${prefix}/Argentum/drive_c/Program Files/Argentum Online Libre/Launcher/Cliente"
-prefixDirAO="${prefix}/Argentum"
+prefix_ao="${prefix}/Argentum"
 
 patchv="$(wget -q -O - 'https://github.com/ao-libre/ao-cliente/releases/latest' | cut -d \" -f 2 | grep -o "tag/.*" | sed 's/tag\///g' | tail -n 1)"
 patchurl="https://github.com/ao-libre/ao-cliente/releases/download"
 aogitv="$(echo $patchv | tr -d 'v.')"
 aolocalv="$(grep 'VERSIONTAGRELEASE' "${prefix_waol}/INIT/Config.ini" | tr -d 'VERSIONTAGLA=v.''\n''\r''\t'' ')"
 
+# Funciones para iniciar/instalar cliente
 iniciar_cliente () {
         echo "Iniciando el cliente ..."
-        WINEDEBUG=fixme-all WINEPREFIX="${prefixDirAO}" WINEDEBUG=heap+all wine "${prefix_waol}/Argentum.exe"
+        WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" WINEDEBUG=heap+all wine "${prefix_waol}/Argentum.exe"
 }
 
 instalar_cliente () {
@@ -20,6 +21,7 @@ instalar_cliente () {
         echo "Instalación finalizada."
 }
 
+# Compruebo la versión, solo arranca si es la correcta, en todos los demas casos (por ahora) reinstala.
 if [ "$aogitv" -lt "$aolocalv" ]; then
         echo "Tu versión es superior a la del servidor."
         echo "Reinstalando versión correcta ..."

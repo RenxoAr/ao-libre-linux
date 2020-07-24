@@ -2,15 +2,24 @@
 
 export prefix="${HOME}/.wine/wineprefix"
 wprefix="Argentum"
-prefixAO="${prefix}/${wprefix}"
-prefix_waol="${prefixAO}/drive_c/Program Files/Argentum Online Libre/Launcher/Cliente"
-prefixS32="${prefixAO}/drive_c/windows/system32"
-prefixC="${prefixAO}/drive_c"
+prefix_ao="${prefix}/${wprefix}"
+prefix_waol="${prefix_ao}/drive_c/Program Files/Argentum Online Libre/Launcher/Cliente"
+prefixS32="${prefix_ao}/drive_c/windows/system32"
+prefixC="${prefix_ao}/drive_c"
 patchurl="https://github.com/ao-libre/ao-cliente/releases/download"
 launchurl="https://github.com/ao-libre/ao-autoupdate/releases/download"
 patchv="$(wget -q -O - 'https://github.com/ao-libre/ao-cliente/releases/latest' | cut -d \" -f 2 | grep -o "tag/.*" | sed 's/tag\///g' | tail -n 1)"
 launchv="$(wget -q -O - 'https://github.com/ao-libre/ao-autoupdate/releases/latest' | cut -d \" -f 2 | grep -o "tag/.*" | sed 's/tag\///g' | tail -n 1)"
 vmcheck="$(cat /sys/class/dmi/id/product_name)"
+
+# Simplifico las llamadas a wine y winetricks
+wine_ao () {
+WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" wine $*
+}
+
+winets_ao () {
+WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" winetricks -q $*
+}
 
 ## INSTALACION
 
@@ -18,9 +27,10 @@ vmcheck="$(cat /sys/class/dmi/id/product_name)"
 [ ! -e "${patchv}.zip" ] && wget "${patchurl}/${patchv}/${patchv}.zip"
 [ ! -d "${prefix_waol}" ] && mkdir -p "${prefix_waol}"
 
-WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine "aolibre-installer-${launchv}.exe"
-WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" winetricks -q mfc42 vcrun2013 vb6run riched20 riched30 directmusic ## DLLS
+wine_ao "aolibre-installer-${launchv}.exe"
+winets_ao mfc42 vcrun2013 vb6run riched20 riched30 directmusic ## DLLS
 
+mv "${prefix_waol}/Init" INIT
 unzip -q -o "${patchv}.zip" -d "${prefix_waol}"
 chmod 755 -R "${prefix_waol}"
 
@@ -80,7 +90,7 @@ Windows Registry Editor Version 5.00
 "*vcomp120"="native,builtin"
 EOF
 
-WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/ao_winxp.reg"
-WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/d3dopengl.reg"
-WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine regedit "${prefix_waol}/dlloverrides.reg"
-[ "${vmcheck}" = "VirtualBox" ] && WINEPREFIX="${prefixAO}" winetricks videomemorysize=512 # Memoria de video de la VM
+wine_ao regedit "${prefix_waol}/ao_winxp.reg"
+wine_ao regedit "${prefix_waol}/d3dopengl.reg"
+wine_ao regedit "${prefix_waol}/dlloverrides.reg"
+[ "${vmcheck}" = "VirtualBox" ] && winets_ao videomemorysize=512 # Memoria de video de la VM

@@ -2,7 +2,7 @@
 
 export prefix="${HOME}/.wine/wineprefix"
 wprefix="Argentum"
-prefixAO="${prefix}/${wprefix}"
+prefix_ao="${prefix}/${wprefix}"
 prefixshare="${prefix}/share/wine"
 prefixcache="${HOME}/.cache/wine"
 monov="5.1.0"
@@ -12,7 +12,7 @@ urlgecko="http://dl.winehq.org/wine/wine-gecko/${geckov}/wine-gecko-${geckov}-x8
 
 [ ! -d "${HOME}/.wine" ] && mkdir "${HOME}/.wine"
 [ ! -d "${prefix}" ] && mkdir -p "${prefix}"
-[ ! -d "${prefixAO}" ] && mkdir -p "${prefixAO}"
+[ ! -d "${prefix_ao}" ] && mkdir -p "${prefix_ao}"
 ( [ ! -d "${prefixshare}/mono" ] && [ ! -d "${prefixshare}/gecko" ] ) && mkdir -p "${prefixshare}/"{mono,gecko}
 
 ## GECKO (IE) Y MONO (.NET) PARA WINE
@@ -27,6 +27,6 @@ fi
 cp "${prefixcache}/wine-mono-${monov}-x86.msi" "${prefixshare}/mono"
 cp "${prefixcache}/wine-gecko-${geckov}-x86.msi" "${prefixshare}/gecko"
 
-WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" WINEARCH=win32 winetricks win7
-WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine msiexec /i "${prefixshare}/mono/wine-mono-${monov}-x86.msi"
-WINEDEBUG=fixme-all WINEPREFIX="${prefixAO}" wine msiexec /i "${prefixshare}/wine/gecko/wine-gecko-${geckov}-x86.msi"
+WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" WINEARCH=win32 winetricks win7
+WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" wine msiexec /i "${prefixshare}/mono/wine-mono-${monov}-x86.msi"
+WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" wine msiexec /i "${prefixshare}/wine/gecko/wine-gecko-${geckov}-x86.msi"
