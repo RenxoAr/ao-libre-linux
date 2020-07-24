@@ -28,7 +28,7 @@ WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" winetricks -q $*
 [ ! -d "${prefix_waol}" ] && mkdir -p "${prefix_waol}"
 
 wine_ao "aolibre-installer-${launchv}.exe"
-winets_ao mfc42 vcrun2013 vb6run riched20 riched30 directmusic ## DLLS
+winets_ao mfc42 vcrun2013 vb6run riched20 riched30 directmusic native_oleaut32## DLLS
 
 mv "${prefix_waol}/Init" INIT
 unzip -q -o "${patchv}.zip" -d "${prefix_waol}"
