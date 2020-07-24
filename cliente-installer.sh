@@ -14,11 +14,11 @@ vmcheck="$(cat /sys/class/dmi/id/product_name)"
 
 # Simplifico las llamadas a wine y winetricks
 wine_ao () {
-WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" wine $*
+  WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" wine $*
 }
 
 winets_ao () {
-WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" winetricks -q $*
+  WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" winetricks -q $*
 }
 
 ## INSTALACION
