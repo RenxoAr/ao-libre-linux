@@ -41,11 +41,7 @@ sh ./run.sh
 
 #### Actualización del cliente
 
-Solo se necesita ejecutar el siguiente script:
-```shell
-cd ~/.ao-libre-linux
-sh ./cliente-installer.sh
-```
+El cliente va a actualizar automáticamente a la versión correspondiente al iniciar con el script run.sh
 
 #### Inspección
 
