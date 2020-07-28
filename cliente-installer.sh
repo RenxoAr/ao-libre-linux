@@ -90,7 +90,7 @@ Windows Registry Editor Version 5.00
 "*vcomp120"="native,builtin"
 EOF
 
-wine_ao regedit "${prefix_waol}/ao_winxp.reg"
-wine_ao regedit "${prefix_waol}/d3dopengl.reg"
-wine_ao regedit "${prefix_waol}/dlloverrides.reg"
+WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" wine regedit "${prefix_waol}/ao_winxp.reg"
+WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" wine regedit "${prefix_waol}/d3dopengl.reg"
+WINEDEBUG=fixme-all WINEPREFIX="${prefix_ao}" wine regedit "${prefix_waol}/dlloverrides.reg"
 [ "${vmcheck}" = "VirtualBox" ] && winets_ao videomemorysize=512 # Memoria de video de la VM
