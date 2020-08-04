@@ -30,7 +30,7 @@ winets_ao () {
 wine_ao "aolibre-installer-${launchv}.exe"
 winets_ao mfc42 vcrun2013 vb6run riched20 riched30 directmusic native_oleaut32## DLLS
 
-mv "${prefix_waol}/Init" INIT
+mv "${prefix_waol}/Init" "${prefix_waol}/INIT"
 unzip -q -o "${patchv}.zip" -d "${prefix_waol}"
 chmod 755 -R "${prefix_waol}"
 
