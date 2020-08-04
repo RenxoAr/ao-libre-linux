@@ -98,7 +98,7 @@ if [ "${distro}" = "Ubuntu" ] || [ "${distro}" = "KDE neon" ]; then
 
 elif [ "${distro}" = "Manjaro Linux" ]; then
 
-    sudo pacman -S \
+    sudo pacman -S --needed \
         lib32-gst-plugins-base \
         lib32-gst-plugins-base-libs \
         lib32-alsa-plugins \
