@@ -96,7 +96,7 @@ if [ "${distro}" = "Ubuntu" ] || [ "${distro}" = "KDE neon" ]; then
         gstreamer1.0-plugins-ugly:i386 \
         gstreamer1.0-pulseaudio:i386
 
-elif [ "${distro}" = "Manjaro" ]; then
+elif [ "${distro}" = "Manjaro Linux" ]; then
 
     sudo pacman -S \
         lib32-gst-plugins-base \
